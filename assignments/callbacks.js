@@ -2,7 +2,7 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
+ 
 
   // GIVEN THIS PROBLEM:
 
@@ -36,34 +36,49 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
   const test2 = firstItem(items, logExorbitantPrice);
   console.log(test2); // "this Pencil is worth a million dollars!"
-*/
+
 
 
 function getLength(arr, cb) {
+  return cb(arr.length);
   // getLength passes the length of the array into the callback.
 }
+getLength(items, console.log);
 
 function last(arr, cb) {
+  return cb(arr[arr.length - 1]);
   // last passes the last item of the array into the callback.
 }
+last(items, console.log);
 
 function sumNums(x, y, cb) {
+  return cb(x+y);
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
+sumNums(30, 65, console.log)
 
 function multiplyNums(x, y, cb) {
+  return cb(x*y);
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
+multiplyNums(14,73, console.log)
 
 function contains(item, list, cb) {
+  return cb(list.includes(item));
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 }
+contains('Pencil', items, console.log);
 
 /* STRETCH PROBLEM */
 
-function removeDuplicates(array, cb) {
+const removeDuplicates = (arr, cb) => {
+  var newArray = new Set(arr);
+  cb([...newArray]);
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 }
+removeDuplicates(items, uniqueArray => {
+  console.log(`array with duplicates removed: ${items}`);
+});
